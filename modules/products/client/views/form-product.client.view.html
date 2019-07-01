@@ -1,0 +1,57 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.product._id ? 'Edit Product' : 'New Product'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.productForm" class="form-horizontal" ng-submit="vm.save(vm.form.productForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.product.name" id="name" class="form-control" placeholder="Name"
+                 required>
+          <div ng-messages="vm.form.productForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Product name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="skuNumber">SKU Number</label>
+          <input name="skuNumber" type="text" ng-model="vm.product.skuNumber" id="skuNumber" class="form-control"
+                 placeholder="SKU Number" required>
+          <div ng-messages="vm.form.productForm.skuNumber.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">SKU Number is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="description">Description</label>
+          <input name="description" type="text" ng-model="vm.product.description" id="description" class="form-control"
+                 placeholder="Description" required>
+          <div ng-messages="vm.form.productForm.description.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Description is required.</p>
+          </div>
+        </div>
+       <div class="form-group" show-errors>
+          <label class="control-label" for="price">Price</label>
+          <input name="price" type="number" ng-model="vm.product.price" id="price" class="form-control"
+                 placeholder="Price" required>
+          <div ng-messages="vm.form.productForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Price is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="availableStockQuantity">Available Stock Quantity</label>
+          <input name="availableStockQuantity" type="number" ng-model="vm.product.availableStockQuantity" id="availableStockQuantity" class="form-control"
+                 placeholder="Available Stock Quantity" required>
+          <div ng-messages="vm.form.productForm.availableStockQuantity.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Available Stock Quantity is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.product._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
